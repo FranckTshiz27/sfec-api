@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="facture_normalisee" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="221f3a29-9654-415f-912c-7e5f06a4d97d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="assure" class="java.lang.String"/>
+	<parameter name="adress" class="java.lang.String"/>
+	<parameter name="nif" class="java.lang.String"/>
+	<parameter name="nomArticle" class="java.lang.String"/>
+	<parameter name="avenant" class="java.lang.String"/>
+	<parameter name="numeropolice" class="java.lang.String"/>
+	<parameter name="codeinte" class="java.lang.String"/>
+	<parameter name="typeavenant" class="java.lang.String"/>
+	<parameter name="dateEffet" class="java.lang.String"/>
+	<parameter name="dateExpiration" class="java.lang.String"/>
+	<parameter name="reference" class="java.lang.String"/>
+	<parameter name="bureau_souscription" class="java.lang.String"/>
+	<parameter name="risque" class="java.lang.String"/>
+	<parameter name="primecom" class="java.lang.String"/>
+	<parameter name="accessoire" class="java.lang.String"/>
+	<parameter name="tva" class="java.lang.String"/>
+	<parameter name="fbn" class="java.lang.String"/>
+	<parameter name="totalAPayer" class="java.lang.String"/>
+	<parameter name="qrcode" class="java.lang.String"/>
+	<parameter name="date_time" class="java.lang.String"/>
+	<parameter name="code_defdgi" class="java.lang.String"/>
+	<parameter name="counters" class="java.lang.String"/>
+	<parameter name="nim" class="java.lang.String"/>
+	<parameter name="rn" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="rn" class="java.lang.String"/>
+	<field name="Fi" class="java.lang.String"/>
+	<field name="codeAssure" class="java.lang.String"/>
+	<field name="codedefdgi" class="java.lang.String"/>
+	<field name="Field_1" class="java.lang.String"/>
+	<field name="nim" class="java.lang.String"/>
+	<field name="counter" class="java.lang.String"/>
+	<field name="dfheure" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="229" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<frame>
+				<reportElement x="0" y="0" width="560" height="65" uuid="829864d0-06c0-4d0e-b0f0-a0e9731e502a"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<bottomPen lineWidth="1.25"/>
+				</box>
+				<staticText>
+					<reportElement x="320" y="0" width="224" height="30" uuid="dd71a42c-0216-4e93-8f0c-7cc2bba99c9b"/>
+					<textElement>
+						<font fontName="Serif" size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FACTURE]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="30" width="224" height="30" uuid="1352d919-b4b5-4996-a801-e435dd05c57a"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="Serif" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{rn}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement mode="Opaque" x="-2" y="112" width="556" height="25" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="e1230f95-7119-4847-97f9-6fe8684de242">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{adress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="80" width="556" height="30" forecolor="#FFFFFF" backcolor="#0C2E6D" uuid="f738e087-f766-456b-b05f-816e77d0483e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="16"/>
+				</textElement>
+				<text><![CDATA[SOUSCRIPTEUR]]></text>
+			</staticText>
+			<textField pattern="200000" isBlankWhenNull="false">
+				<reportElement x="440" y="85" width="100" height="20" forecolor="#000000" uuid="9cca63e2-facb-4cd5-9aae-688e5131536b"/>
+				<textElement>
+					<font fontName="Serif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codeAssure}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="137" width="556" height="53" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="d0a18550-9f2e-4a40-a749-85827b72ed1f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{adress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="190" width="556" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="8a27fc28-8818-4911-9d34-c56062cbf982">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{rn}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="530" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="554" height="200" backcolor="rgba(12, 46, 109, 0.05882353)" uuid="0b272628-6446-4581-9d7c-22a7de4f574b"/>
+			</rectangle>
+			<textField>
+				<reportElement mode="Opaque" x="2" y="0" width="550" height="30" forecolor="#FFFFFF" backcolor="#0C2E6D" uuid="b958a5af-d293-4699-bdba-3c4adefb0c1d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomArticle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="2" y="33" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="eff6a19e-6aa0-4e96-80fb-4d1b859c6954">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Police N°"+$P{codeinte}+"  "+$P{numeropolice}+" Avenant "+$P{avenant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="66" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="77c033f9-2b6d-48d6-a137-870805acc97d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Date d'effet   "+$P{dateEffet}+"          Date d'expiration  "+$P{dateExpiration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="1" y="99" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="60d432c5-ef69-4e82-aed3-8f989990d7e7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{rn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="130" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="584e5e62-6f0b-468b-a846-3021a6453116">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Bureau souscription "+$P{bureau_souscription}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="-1" y="163" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="d7aa3f7e-fa9a-4fb3-8333-6b9b3a091a31">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Risque(s) Assuré(s) : "+$P{risque}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="210" width="554" height="193" backcolor="rgba(12, 46, 109, 0.05882353)" uuid="84c02c77-ac94-4055-87e6-4406d5e39cb6"/>
+			</rectangle>
+			<textField>
+				<reportElement mode="Opaque" x="2" y="211" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="d26a6286-83bc-4802-b8e7-08d7c35bc488">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Prime commerciale : "+$P{primecom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="-1" y="243" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="c8f8c73c-c573-478e-b42f-e43180eebc91">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Accessoires :"+$P{accessoire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="276" width="552" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="cec0bc42-782a-4279-b556-900f63cb4fc6">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["TVA : "+$P{tva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="1" y="310" width="555" height="30" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="e4f67418-ac82-4af0-b50a-9b920d9d816f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="1.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["FBN "+$P{fbn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="2" y="343" width="555" height="30" backcolor="rgba(12, 46, 109, 0.4)" uuid="373c653b-f94d-46d3-ae25-3d771dcbac32">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Total à payer "+$P{totalAPayer}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="2" y="380" width="308" height="23" uuid="91247d99-b58e-40c0-99a5-3ae962faaaf2"/>
+				<textElement>
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fait à Kinshasa, le "+ new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="373" width="193" height="30" uuid="aa689de8-9dc1-4982-a4ff-8d0f732a9153"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pour la compagnie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="410" width="500" height="20" uuid="d72052c5-0d9b-4e5e-b7d9-8c73dcd3b070"/>
+				<box topPadding="3"/>
+				<textElement>
+					<font fontName="Serif" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[----ELEMENTS DE SECURITE A LA FACTURE NORMALISEE----]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="3" y="429" width="552" height="98" uuid="dce05acd-b895-4bf9-9472-c559717d0e97"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<componentElement>
+					<reportElement x="1" y="1" width="128" height="83" uuid="955da090-a353-41fe-9e37-04dfd066018b"/>
+					<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<jr:codeExpression><![CDATA["123456789"]]></jr:codeExpression>
+					</jr:QRCode>
+				</componentElement>
+				<staticText>
+					<reportElement x="202" y="2" width="247" height="17" uuid="1d89d7f5-b112-4699-a6fa-172f69b16c5a"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Code DEF/DGI]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="202" y="19" width="258" height="19" uuid="1038c41e-bc82-4007-8292-98dc39f2acdd"/>
+					<textElement textAlignment="Center">
+						<font fontName="Serif" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{code_defdgi}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="420" y="39" width="129" height="19" uuid="2e8d3fef-267a-4a0e-8f59-7c98e7e10642"/>
+					<textElement>
+						<font fontName="Serif" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{nim}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="150" y="39" width="70" height="18" uuid="f162b876-628a-4c7f-888d-40aa7bc74a75"/>
+					<textElement>
+						<font fontName="Serif" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DEF NIM]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="421" y="60" width="128" height="19" uuid="a2c8605d-f19f-413e-9fae-3d399177ca48"/>
+					<textFieldExpression><![CDATA[$P{counters}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="152" y="58" width="138" height="18" uuid="e091de0f-1fa8-4b73-ba48-2426b23bead2"/>
+					<textElement>
+						<font fontName="Serif" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DEF Compteurs]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="152" y="76" width="138" height="18" uuid="0237d50a-c9f8-4709-9554-3932dff25f20"/>
+					<textElement>
+						<font fontName="Serif" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DEF Heure:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="419" y="78" width="128" height="22" uuid="30690baf-3b4a-47d7-9331-0e30f10ab3f0"/>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="39" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

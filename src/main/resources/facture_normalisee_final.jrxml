@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="facture_normalisee" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="221f3a29-9654-415f-912c-7e5f06a4d97d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="assure" class="java.lang.String"/>
+	<parameter name="adress" class="java.lang.String"/>
+	<parameter name="nif" class="java.lang.String"/>
+	<parameter name="nomArticle" class="java.lang.String"/>
+	<parameter name="avenant" class="java.lang.String"/>
+	<parameter name="numeropolice" class="java.lang.String"/>
+	<parameter name="codeinte" class="java.lang.String"/>
+	<parameter name="typeavenant" class="java.lang.String"/>
+	<parameter name="dateEffet" class="java.lang.String"/>
+	<parameter name="dateExpiration" class="java.lang.String"/>
+	<parameter name="reference" class="java.lang.String"/>
+	<parameter name="bureau_souscription" class="java.lang.String"/>
+	<parameter name="risque" class="java.lang.String"/>
+	<parameter name="primecom" class="java.lang.String"/>
+	<parameter name="accessoire" class="java.lang.String"/>
+	<parameter name="tva" class="java.lang.String"/>
+	<parameter name="fbn" class="java.lang.String"/>
+	<parameter name="totalAPayer" class="java.lang.String"/>
+	<parameter name="qrcode" class="java.lang.String"/>
+	<parameter name="date_time" class="java.lang.String"/>
+	<parameter name="code_defdgi" class="java.lang.String"/>
+	<parameter name="counters" class="java.lang.String"/>
+	<parameter name="nim" class="java.lang.String"/>
+	<parameter name="rn" class="java.lang.String"/>
+	<parameter name="logo_raw" class="java.lang.String"/>
+	<parameter name="code_assure" class="java.lang.String"/>
+	<parameter name="nif_client" class="java.lang.String"/>
+	<parameter name="createdat" class="java.lang.String"/>
+	<parameter name="amount" class="java.lang.String"/>
+	<parameter name="shopName" class="java.lang.String"/>
+	<parameter name="shop_adress" class="java.lang.String"/>
+	<parameter name="operatorName" class="java.lang.String"/>
+	<parameter name="payment_mode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="rn" class="java.lang.String"/>
+	<field name="Fi" class="java.lang.String"/>
+	<field name="codeAssure" class="java.lang.String"/>
+	<field name="codedefdgi" class="java.lang.String"/>
+	<field name="Field_1" class="java.lang.String"/>
+	<field name="nim" class="java.lang.String"/>
+	<field name="counter" class="java.lang.String"/>
+	<field name="dfheure" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="155" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<frame>
+				<reportElement x="0" y="0" width="557" height="63" uuid="829864d0-06c0-4d0e-b0f0-a0e9731e502a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<staticText>
+					<reportElement x="400" y="2" width="155" height="28" uuid="dd71a42c-0216-4e93-8f0c-7cc2bba99c9b"/>
+					<textElement>
+						<font fontName="Serif" size="15" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FACTURE]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="400" y="30" width="156" height="25" backcolor="rgba(12, 46, 109, 0.28627452)" uuid="1352d919-b4b5-4996-a801-e435dd05c57a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{rn}]]></textFieldExpression>
+				</textField>
+				<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle" evaluationTime="Report">
+					<reportElement positionType="Float" x="3" y="2" width="110" height="53" uuid="e08b08a3-4dc5-4c66-98e6-8ea6a989da4c"/>
+					<imageExpression><![CDATA[new ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($P{logo_raw}))]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="120" y="1" width="270" height="15" uuid="12a24b30-7512-4e48-b7b2-ec307d0c6ac0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["POINT DE VENTE : "+$P{shopName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="17" width="270" height="15" uuid="f87eba09-1698-44e2-b580-eae4c69d75c7">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["NIF : "+$P{nif}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="33" width="270" height="15" uuid="73913133-4707-4720-ae87-d151a11bd045">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{shop_adress}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="47" width="270" height="15" uuid="cc6a60e6-3472-419e-a947-399a0d65884c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["OPERATEUR : "+$P{operatorName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="85" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="e1230f95-7119-4847-97f9-6fe8684de242">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{assure}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="63" width="555" height="22" forecolor="#FFFFFF" backcolor="rgba(12, 46, 109, 0.827451)" uuid="f738e087-f766-456b-b05f-816e77d0483e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Souscripteur]]></text>
+			</staticText>
+			<textField pattern="200000" isBlankWhenNull="false">
+				<reportElement x="452" y="64" width="105" height="20" forecolor="#FFFFFF" uuid="9cca63e2-facb-4cd5-9aae-688e5131536b"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{code_assure}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="104" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="d0a18550-9f2e-4a40-a749-85827b72ed1f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{adress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="122" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="8a27fc28-8818-4911-9d34-c56062cbf982">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nif_client}==null?"":$P{nif_client}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="577" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="-13" width="555" height="22" forecolor="#FFFFFF" backcolor="rgba(12, 46, 109, 0.827451)" uuid="b958a5af-d293-4699-bdba-3c4adefb0c1d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomArticle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="10" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="eff6a19e-6aa0-4e96-80fb-4d1b859c6954">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Police  N°          "+$P{codeinte}+"   "+$P{numeropolice}+"          Avenant   "+$P{avenant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="29" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="77c033f9-2b6d-48d6-a137-870805acc97d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date d'effet   "+$P{dateEffet}+"          Date d'expiration  "+$P{dateExpiration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="48" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="584e5e62-6f0b-468b-a846-3021a6453116">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Bureau souscription : "+$P{bureau_souscription}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="67" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="d26a6286-83bc-4802-b8e7-08d7c35bc488">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Prime commerciale : "+$P{primecom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="86" width="555" height="18" backcolor="rgba(12, 46, 109, 0.023529412)" uuid="cec0bc42-782a-4279-b556-900f63cb4fc6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TVA : "+$P{tva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="104" width="555" height="22" forecolor="#FFFFFF" backcolor="rgba(12, 46, 109, 0.827451)" uuid="373c653b-f94d-46d3-ae25-3d771dcbac32">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total TTC : "+$P{totalAPayer}+" USD"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="172" width="308" height="22" uuid="91247d99-b58e-40c0-99a5-3ae962faaaf2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fait à Kinshasa, le "+ $P{createdat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="361" y="172" width="193" height="22" uuid="aa689de8-9dc1-4982-a4ff-8d0f732a9153">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pour la compagnie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="466" width="500" height="18" uuid="d72052c5-0d9b-4e5e-b7d9-8c73dcd3b070">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[----ELEMENTS DE SECURITE A LA FACTURE NORMALISEE----]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="3" y="486" width="552" height="89" uuid="dce05acd-b895-4bf9-9472-c559717d0e97">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="3" leftPadding="0" bottomPadding="3">
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<componentElement>
+					<reportElement stretchType="ContainerHeight" x="11" y="6" width="89" height="74" uuid="955da090-a353-41fe-9e37-04dfd066018b">
+						<property name="com.jaspersoft.studio.unit.margin" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" margin="0" errorCorrectionLevel="M">
+						<jr:codeExpression><![CDATA[$P{qrcode}]]></jr:codeExpression>
+					</jr:QRCode>
+				</componentElement>
+				<staticText>
+					<reportElement x="202" y="1" width="247" height="17" uuid="1d89d7f5-b112-4699-a6fa-172f69b16c5a"/>
+					<textElement textAlignment="Center">
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Code DEF/DGI]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="202" y="19" width="258" height="15" uuid="1038c41e-bc82-4007-8292-98dc39f2acdd">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Serif" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{code_defdgi}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="420" y="33" width="129" height="15" uuid="2e8d3fef-267a-4a0e-8f59-7c98e7e10642">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{nim}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="150" y="35" width="70" height="15" uuid="f162b876-628a-4c7f-888d-40aa7bc74a75">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="false"/>
+					</textElement>
+					<text><![CDATA[DEF NIM]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="421" y="50" width="128" height="15" uuid="a2c8605d-f19f-413e-9fae-3d399177ca48">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{counters}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="152" y="51" width="138" height="15" uuid="e091de0f-1fa8-4b73-ba48-2426b23bead2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="false"/>
+					</textElement>
+					<text><![CDATA[DEF Compteurs]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="152" y="68" width="138" height="15" uuid="0237d50a-c9f8-4709-9554-3932dff25f20">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="11" isBold="false"/>
+					</textElement>
+					<text><![CDATA[DEF Heure:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="420" y="66" width="128" height="15" uuid="30690baf-3b4a-47d7-9331-0e30f10ab3f0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Serif" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{date_time}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="128" width="555" height="22" forecolor="#000000" backcolor="#FFFFFF" uuid="8721c966-b621-4ede-b83a-3b0c1170140d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Arrêtée la présente facture à la somme de "+" "+$P{amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="205" width="376" height="30" uuid="42b782fe-86be-45f2-93c1-3ce551b5ed6e"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Payable à notre guichet en espéces
+Ou par chèque ou Virement Bancaire à nos comptes ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="237" width="376" height="155" uuid="7dab76bd-5311-414e-abd1-d254a47b3581"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Payable à notre guichet en espéces
+Ou par chèque ou Virement Bancaire à nos comptes :
+- FBN BANK/0001-00014-11000-20320883976-40
+- BOAPRIME USD /00029010170310105000217
+- BGFI BANK USD /00031-26100-40030593011-79
+- ЕСОВANK USD /00026000013508006461401
+- ACCESS BANK 700021003002104151710120
+- RAWBANK - PRIME SANTE / USD /05100051010101977750824
+- ADVANS BANQUE /00028001010011002333901
+- EQUITY BANK /00011005023200000036492
+- TMB USD /00017110005069086000162
+- RAWBANK - PRIME USD/05100051010101977750339]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="400" width="547" height="48" uuid="146bdfa2-0a92-4132-bd53-692a3c626b7a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[AVIS IMPORTANT: Extrait de l'article 16 du code des assurances congolais : 
+La prise d'effet du contrat est subordonnée au paiement de la prime par le souscripteur.
+Il est interdit aux entreprises d'assurance, sous peine des sanctions de souscrire ou de renouveler un contrat d'assurance dont la prime n'est pas payée.
+ ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="445" width="547" height="15" uuid="5fdd15d5-8944-4d9d-b2cd-cdde8fbacb78">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NB: En cas de virement bancaire ou paiement par chèque, les frais bancaires liés à ces transactions restent à la charge du]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="151" width="555" height="22" forecolor="#000000" backcolor="#FFFFFF" uuid="24e33581-4e93-4214-830b-560683636581">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Mode de paiement : "+" "+$P{payment_mode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="554" height="60" forecolor="#1E3C88" backcolor="#0C2E6D" uuid="ad0a2c40-4e99-45a9-ab52-0e7f7b2e3e7a"/>
+				<box topPadding="4" leftPadding="30" rightPadding="30">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAWSUR SA, Siège social : 90, Blvd du 30 Juin - Kinshasa/Gombe-RDC-Capital social : 10.000.000.000 CDF entièrement libéré.
+Agrément ARCA N° 12003 – RCCM N° CD/KIN/RCCM/16-B-8552 - N° ID. NAT. 01-K6500-N05790Y -N° Impôt A1603093F
+Contact:communication@rawsur.com]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
