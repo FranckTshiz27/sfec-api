@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.rawsur.apidgi.models.dgi.Intermediary;
 import com.rawsur.apidgi.models.dgi.User;
@@ -22,5 +23,5 @@ public interface UserIntermRepo extends JpaRepository<UserInterm, UUID> {
 
   @Modifying
   @Query(value = DELETE_BY_USER, nativeQuery = true)
-  public int deleteByUser(UUID userID);
+  public int deleteByUser(@Param("userID") UUID userID);
 }

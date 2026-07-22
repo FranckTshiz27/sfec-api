@@ -37,6 +37,10 @@ public class SfecInvoice {
     @Column(nullable = false, unique = true, length = 100)
     private String externalInvoiceId;
 
+    /** Code intermediaire Oracle (CODEINTE) a l'origine de la facture. */
+    @Column(name = "intermediary_code")
+    private Integer intermediaryCode;
+
     @Column(length = 20)
     private String taxpayerNiu;
 

@@ -58,8 +58,16 @@ public class SfecInvoiceService {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private IntermediaryService intermediaryService;
+
     @Transactional
     public SfecInvoiceResponseDto submitInvoice(CreateSfecInvoiceDto request) {
+        return submitInvoice(request, null);
+    }
+
+    @Transactional
+    public SfecInvoiceResponseDto submitInvoice(CreateSfecInvoiceDto request, Integer intermediaryCode) {
         validateBusinessRules(request);
 
         if (sfecInvoiceRepo.existsByExternalInvoiceId(request.getInvoiceId())) {
@@ -67,6 +75,7 @@ public class SfecInvoiceService {
         }
 
         SfecInvoice invoice = SfecInvoiceConverter.toEntity(request);
+        invoice.setIntermediaryCode(intermediaryCode);
         invoice.setStatus(SfecInvoiceStatus.SUBMITTED);
         invoice = sfecInvoiceRepo.save(invoice);
 
@@ -94,13 +103,15 @@ public class SfecInvoiceService {
     public SfecInvoiceResponseDto findById(java.util.UUID id) {
         SfecInvoice invoice = sfecInvoiceRepo.findById(id)
                 .orElseThrow(() -> new SfecException("Facture SFEC non trouvee avec l'ID: " + id));
+        intermediaryService.assertCanAccessIntermediary(invoice.getIntermediaryCode());
         return SfecInvoiceConverter.toResponseDto(invoice);
     }
 
     @Transactional
     public SfecInvoiceResponseDto createFromEncaissement(RawsurInvoicePayment encaissement) {
+        intermediaryService.assertCanAccessIntermediary(encaissement.getCodeInte());
         CreateSfecInvoiceDto request = EncaissementToSfecInvoiceConverter.toCreateSfecInvoiceDto(encaissement);
-        return submitInvoice(request);
+        return submitInvoice(request, encaissement.getCodeInte());
     }
 
     @Transactional
@@ -109,10 +120,19 @@ public class SfecInvoiceService {
             throw new SfecException("dateDebut et dateFin sont obligatoires");
         }
 
+        List<Integer> allowedCodes = intermediaryService.getAllowedIntermediaryCodes();
+        if (allowedCodes != null && allowedCodes.isEmpty()) {
+            return Collections.emptyList();
+        }
+
         Instant startDate = periodeDTO.getDateDebut().atStartOfDay(java.time.ZoneOffset.UTC).toInstant();
         Instant endDate = periodeDTO.getDateFin().plusDays(1).atStartOfDay(java.time.ZoneOffset.UTC).toInstant();
 
-        return sfecInvoiceRepo.findByCreatedAtPeriod(startDate, endDate).stream()
+        List<SfecInvoice> invoices = allowedCodes == null
+                ? sfecInvoiceRepo.findByCreatedAtPeriod(startDate, endDate)
+                : sfecInvoiceRepo.findByCreatedAtPeriodAndIntermediaryCodeIn(startDate, endDate, allowedCodes);
+
+        return invoices.stream()
                 .map(SfecInvoiceConverter::toResponseDto)
                 .collect(Collectors.toList());
     }

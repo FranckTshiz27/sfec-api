@@ -16,6 +16,7 @@ import com.rawsur.apidgi.models.dgi.SfecInvoice;
 import com.rawsur.apidgi.models.rawsur.RawsurInvoicePayment;
 import com.rawsur.apidgi.repositories.dgi.SfecInvoiceRepo;
 import com.rawsur.apidgi.repositories.rawsur.RawsurInvoicePaymentRepo;
+import com.rawsur.apidgi.services.dgi.IntermediaryService;
 
 @Service
 public class RawsurInvoicePaymentService {
@@ -26,16 +27,46 @@ public class RawsurInvoicePaymentService {
     @Autowired
     private SfecInvoiceRepo sfecInvoiceRepo;
 
+    @Autowired
+    private IntermediaryService intermediaryService;
+
     public List<RawsurInvoicePayment> getInvoices(PeriodeDTO periodeDTO) {
-        List<RawsurInvoicePayment> invoicePayments = this.rawsurInvoicePaymentRepo
-                .findByDateEncaBetween(periodeDTO.getDateDebut(), periodeDTO.getDateFin());
+        List<Integer> allowedCodes = this.intermediaryService.getAllowedIntermediaryCodes();
+        if (allowedCodes != null && allowedCodes.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        List<RawsurInvoicePayment> invoicePayments;
+        if (allowedCodes == null) {
+            invoicePayments = this.rawsurInvoicePaymentRepo
+                    .findByDateEncaBetween(periodeDTO.getDateDebut(), periodeDTO.getDateFin());
+        } else {
+            invoicePayments = this.rawsurInvoicePaymentRepo.findByDateEncaBetweenAndCodeInteIn(
+                    periodeDTO.getDateDebut(), periodeDTO.getDateFin(), allowedCodes);
+        }
         return enrichWithSfecStatus(invoicePayments);
     }
 
     public List<RawsurInvoicePayment> getInvoicesByReference(String reference) {
         InvoiceReferenceCriteria criteria = this.parseReference(reference);
-        List<RawsurInvoicePayment> invoicePayments = this.rawsurInvoicePaymentRepo
-                .findByCriteria(criteria.codeIntermediaire, criteria.numeroPolice, criteria.numeroAvenant);
+        List<Integer> allowedCodes = this.intermediaryService.getAllowedIntermediaryCodes();
+        if (allowedCodes != null && allowedCodes.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        if (allowedCodes != null && criteria.codeIntermediaire != null
+                && !allowedCodes.contains(criteria.codeIntermediaire)) {
+            return Collections.emptyList();
+        }
+
+        List<RawsurInvoicePayment> invoicePayments;
+        if (allowedCodes == null) {
+            invoicePayments = this.rawsurInvoicePaymentRepo
+                    .findByCriteria(criteria.codeIntermediaire, criteria.numeroPolice, criteria.numeroAvenant);
+        } else {
+            invoicePayments = this.rawsurInvoicePaymentRepo.findByCriteriaRestricted(
+                    allowedCodes, criteria.codeIntermediaire, criteria.numeroPolice, criteria.numeroAvenant);
+        }
         return enrichWithSfecStatus(invoicePayments);
     }
 

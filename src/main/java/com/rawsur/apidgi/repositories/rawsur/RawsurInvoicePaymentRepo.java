@@ -1,6 +1,7 @@
 package com.rawsur.apidgi.repositories.rawsur;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -26,10 +27,28 @@ public interface RawsurInvoicePaymentRepo extends JpaRepository<RawsurInvoicePay
             @Param("endDate") LocalDate endDate);
 
     @Query(value = "SELECT * FROM V_FACTURE_ENCAISSEMENT "
+            + "WHERE TRUNC(DATEENCA) >= TRUNC(:startDate) "
+            + "AND TRUNC(DATEENCA) <= TRUNC(:endDate) "
+            + "AND CODEINTE IN (:codes)", nativeQuery = true)
+    List<RawsurInvoicePayment> findByDateEncaBetweenAndCodeInteIn(@Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate,
+            @Param("codes") Collection<Integer> codes);
+
+    @Query(value = "SELECT * FROM V_FACTURE_ENCAISSEMENT "
             + "WHERE (:codeInte IS NULL OR CODEINTE = :codeInte) "
             + "AND (:numePoli IS NULL OR NUMEPOLI = :numePoli) "
             + "AND (:numeAven IS NULL OR NUMEAVEN = :numeAven)", nativeQuery = true)
     List<RawsurInvoicePayment> findByCriteria(@Param("codeInte") Integer codeInte,
+            @Param("numePoli") Long numePoli,
+            @Param("numeAven") Long numeAven);
+
+    @Query(value = "SELECT * FROM V_FACTURE_ENCAISSEMENT "
+            + "WHERE CODEINTE IN (:codes) "
+            + "AND (:codeInte IS NULL OR CODEINTE = :codeInte) "
+            + "AND (:numePoli IS NULL OR NUMEPOLI = :numePoli) "
+            + "AND (:numeAven IS NULL OR NUMEAVEN = :numeAven)", nativeQuery = true)
+    List<RawsurInvoicePayment> findByCriteriaRestricted(@Param("codes") Collection<Integer> codes,
+            @Param("codeInte") Integer codeInte,
             @Param("numePoli") Long numePoli,
             @Param("numeAven") Long numeAven);
 }

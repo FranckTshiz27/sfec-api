@@ -156,6 +156,7 @@ public final class SfecInvoiceConverter {
                 .map(SfecInvoiceConverter::toItemDto)
                 .collect(Collectors.toList()));
         dto.setStatus(invoice.getStatus() != null ? invoice.getStatus().name() : null);
+        dto.setIntermediaryCode(invoice.getIntermediaryCode());
         if (invoice.getCertification() != null) {
             SfecCertification certification = invoice.getCertification();
             dto.setCertificationNumber(certification.getCertificationNumber());

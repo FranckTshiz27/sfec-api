@@ -116,6 +116,9 @@ public class SfecInvoiceResponseDto {
 
     private String status;
 
+    @JsonProperty("intermediary_code")
+    private Integer intermediaryCode;
+
     @JsonProperty("certification_number")
     private String certificationNumber;
 

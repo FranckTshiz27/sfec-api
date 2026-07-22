@@ -24,4 +24,10 @@ public interface SfecInvoiceRepo extends JpaRepository<SfecInvoice, UUID> {
     @Query("SELECT i FROM SfecInvoice i WHERE i.createdAt >= :startDate AND i.createdAt < :endDate ORDER BY i.createdAt DESC")
     List<SfecInvoice> findByCreatedAtPeriod(@Param("startDate") Instant startDate,
             @Param("endDate") Instant endDate);
+
+    @Query("SELECT i FROM SfecInvoice i WHERE i.createdAt >= :startDate AND i.createdAt < :endDate "
+            + "AND i.intermediaryCode IN :codes ORDER BY i.createdAt DESC")
+    List<SfecInvoice> findByCreatedAtPeriodAndIntermediaryCodeIn(@Param("startDate") Instant startDate,
+            @Param("endDate") Instant endDate,
+            @Param("codes") Collection<Integer> codes);
 }

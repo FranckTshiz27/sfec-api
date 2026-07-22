@@ -3,11 +3,11 @@ package com.rawsur.apidgi.repositories.dgi;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.rawsur.apidgi.models.dgi.Intermediary;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 public interface IntermediaryRepo extends JpaRepository<Intermediary, UUID> {
@@ -19,9 +19,7 @@ public interface IntermediaryRepo extends JpaRepository<Intermediary, UUID> {
    
   public Intermediary findByCode(String code);
 
-  // public Optional<Intermediary> findByCodeAndPrimaire(String code, boolean primaire);
-
   @Query(value = findAllByUser, nativeQuery = true)
-  public List<Intermediary> findAllByUser(UUID userID);
+  public List<Intermediary> findAllByUser(@Param("userID") UUID userID);
 
 }
