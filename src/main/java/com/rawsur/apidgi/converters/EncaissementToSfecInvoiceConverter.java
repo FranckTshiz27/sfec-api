@@ -74,26 +74,28 @@ public final class EncaissementToSfecInvoiceConverter {
         return item;
     }
 
+    // montant hors taxe c'est le prix unitaire
     private static BigDecimal resolveSubtotal(RawsurInvoicePayment encaissement) {
         if (encaissement.getPrice() != null) {
             return encaissement.getPrice().abs().setScale(2, RoundingMode.HALF_UP);
         }
-        if (encaissement.getAmount() != null) {
-            return encaissement.getAmount().abs().setScale(2, RoundingMode.HALF_UP);
-        }
-        if (encaissement.getPrime() != null) {
-            return BigDecimal.valueOf(encaissement.getPrime()).abs().setScale(2, RoundingMode.HALF_UP);
-        }
+        // if (encaissement.getAmount() != null) {
+        //     return encaissement.getAmount().abs().setScale(2, RoundingMode.HALF_UP);
+        // }
+        // if (encaissement.getPrime() != null) {
+        //     return BigDecimal.valueOf(encaissement.getPrime()).abs().setScale(2, RoundingMode.HALF_UP);
+        // }
         return BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
     }
 
+    // montant de la taxe c'est la tva qui vient déjà de la vue
     private static BigDecimal resolveTaxAmount(RawsurInvoicePayment encaissement, BigDecimal subtotal) {
         if (encaissement.getTva() != null && encaissement.getTva() > 0) {
             return BigDecimal.valueOf(encaissement.getTva()).setScale(2, RoundingMode.HALF_UP);
         }
-        if ("B".equalsIgnoreCase(encaissement.getTaxeGroup())) {
-            return subtotal.multiply(BigDecimal.valueOf(0.18)).setScale(2, RoundingMode.HALF_UP);
-        }
+        // if ("B".equalsIgnoreCase(encaissement.getTaxeGroup())) {
+        //     return subtotal.multiply(BigDecimal.valueOf(0.18)).setScale(2, RoundingMode.HALF_UP);
+        // }
         return BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
     }
 
